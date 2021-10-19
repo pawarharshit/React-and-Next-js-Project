@@ -3,6 +3,7 @@ import Head from "next/head";
 import { MongoClient } from "mongodb";
 
 import MeetupList from "../components/meetups/MeetupList";
+import { mongodbURL } from "../databaseCred";
 
 function HomePage(props) {
   return (
@@ -30,7 +31,7 @@ export async function getStaticProps() {
   // fetch data from an api
 
   const client = await MongoClient.connect(
-    "mongodb+srv://harshit:harshit26@cluster0.lz2kj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    mongodbURL
   );
   const db = client.db();
 

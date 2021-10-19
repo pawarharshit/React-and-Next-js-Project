@@ -1,6 +1,6 @@
-
   
 import { MongoClient, ObjectId } from 'mongodb';
+import {mongodbURL} from "../../databaseCred";
 import { Fragment } from 'react';
 
 import MeetupDetail from '../../components/meetups/MeetupDetail';
@@ -24,7 +24,7 @@ function MeetupDetails(props) {
 
 export async function getStaticPaths() {
   const client = await MongoClient.connect(
-    'mongodb+srv://harshit:harshit26@cluster0.lz2kj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+    mongodbURL
   );
   const db = client.db();
 
@@ -48,7 +48,7 @@ export async function getStaticProps(context) {
   const meetupId = context.params.meetupId;
 
   const client = await MongoClient.connect(
-    'mongodb+srv://harshit:harshit26@cluster0.lz2kj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+    mongodbURL
   );
   const db = client.db();
 

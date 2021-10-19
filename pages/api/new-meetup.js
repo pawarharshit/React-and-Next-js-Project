@@ -1,4 +1,5 @@
 import { MongoClient } from "mongodb";
+import { mongodbURL } from "../../databaseCred";
 
 // /api/new-meetup
 // POST /api/new-meetup
@@ -8,7 +9,7 @@ async function handler(req, res) {
     const data = req.body;
 
     const client = await MongoClient.connect(
-      "mongodb+srv://harshit:harshit26@cluster0.lz2kj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+      mongodbURL
     );
     const db = client.db();
 
